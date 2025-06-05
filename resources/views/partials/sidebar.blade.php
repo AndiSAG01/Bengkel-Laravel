@@ -44,6 +44,7 @@
                      <span>Data Pelanggan</span>
                  </a>
              </li>
+
              <li
                  class="{{ request()->routeIs('category*') || request()->routeIs('product*') || request()->routeIs('service*') ? 'mm-active' : '' }}">
                  <a class="has-arrow" href="#" aria-expanded="false">
@@ -59,7 +60,24 @@
                              class="{{ request()->routeIs('service.index') ? 'active' : '' }}">Service</a></li>
                  </ul>
              </li>
-
+             <li class="{{ request()->routeIs('booking*') ? 'mm-active' : '' }}">
+                 <a class="has-arrow" href="#" aria-expanded="false">
+                     <i class="fab fa-magento"></i>
+                     <span>Data Booking Online</span>
+                 </a>
+                 <ul>
+                     <li><a href="{{ route('booking.confirmation') }}"
+                             class="{{ request()->routeIs('booking.confirmation') ? 'active' : '' }}">Konfirmasi</a>
+                     </li>
+                     <li><a href="{{ route('booking.process') }}"
+                             class="{{ request()->routeIs('booking.process') ? 'active' : '' }}">Dalam Pengerjaan</a>
+                     </li>
+                     <li><a href="{{ route('booking.end') }}"
+                             class="{{ request()->routeIs('booking.end') ? 'active' : '' }}">Selesai</a></li>
+                     <li><a href="{{ route('service.index') }}"
+                             class="{{ request()->routeIs('service.index') ? 'active' : '' }}">Dibatalkan</a></li>
+                 </ul>
+             </li>
              <li
                  class="{{ request()->routeIs('transaction.index') || request()->routeIs('transaction.history') ? 'mm-active' : '' }}">
                  <a class="has-arrow" href="#" aria-expanded="false">
