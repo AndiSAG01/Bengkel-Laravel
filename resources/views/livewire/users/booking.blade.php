@@ -74,66 +74,80 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <h2 class="mb-4 text-center">Form Booking Service Mobil</h2>
-
                     <form wire:submit.prevent="submitBooking">
                         @csrf
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama Pelanggan</label>
+                                    <input type="text" class="form-control" id="nama" wire:model="nama"
+                                        required>
+                                </div>
 
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama Pelanggan</label>
-                            <input type="text" class="form-control" id="nama" wire:model="nama" required>
-                        </div>
+                                <div class="mb-3">
+                                    <label for="nomor_hp" class="form-label">Nomor HP</label>
+                                    <input type="number" class="form-control" id="nomor_hp" wire:model="nomor_hp"
+                                        required>
+                                </div>
 
-                        <div class="mb-3">
-                            <label for="nomor_hp" class="form-label">Nomor HP</label>
-                            <input type="number" class="form-control" id="nomor_hp" wire:model="nomor_hp" required>
-                        </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" wire:model="email"
+                                        required>
+                                </div>
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" wire:model="email" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="tipe_kendaraan" class="form-label">Tipe Kendaraan</label>
-                            <input type="text" class="form-control" id="tipe_kendaraan" wire:model="tipe_kendaraan"
-                                required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="plat_nomor" class="form-label">Plat Nomor</label>
-                            <input type="text" class="form-control" id="plat_nomor" wire:model="plat_nomor" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="atas_nama" class="form-label">Atas Nama (STNK)</label>
-                            <input type="text" class="form-control" id="atas_nama" wire:model="atas_nama"
-                                required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="jadwal_service" class="form-label">Jadwal Service</label>
-                            <input type="datetime-local" class="form-control" id="jadwal_service"
-                                wire:model="jadwal_service" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="tipe_service" class="form-label">Tipe Service</label>
-                            <select class="form-select" id="tipe_service" wire:model.live="tipe_service" required>
-                                <option value="">-- Pilih Tipe Service --</option>
-                                <option value="Ganti Oli">Ganti Oli</option>
-                                <option value="Servis Berkala">Servis Berkala</option>
-                                <option value="Perbaikan Mesin">Perbaikan Mesin</option>
-                                <option value="Lainnya">Lainnya</option>
-                            </select>
-                        </div>
-
-                        @if ($tipe_service === 'Lainnya')
-                            <div class="mb-3">
-                                <label for="tipe_service_lainnya" class="form-label">Tipe Service Lainnya</label>
-                                <input type="text" class="form-control" id="tipe_service_lainnya"
-                                    wire:model="tipe_service_lainnya" required>
+                                <div class="mb-3">
+                                    <label for="tipe_kendaraan" class="form-label">Tipe Kendaraan</label>
+                                    <input type="text" class="form-control" id="tipe_kendaraan"
+                                        wire:model="tipe_kendaraan" required>
+                                </div>
                             </div>
-                        @endif
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="plat_nomor" class="form-label">Plat Nomor</label>
+                                    <input type="text" class="form-control" id="plat_nomor" wire:model="plat_nomor"
+                                        required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="atas_nama" class="form-label">Atas Nama (STNK)</label>
+                                    <input type="text" class="form-control" id="atas_nama" wire:model="atas_nama"
+                                        required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="jadwal_service" class="form-label">Jadwal Service</label>
+                                    <input type="datetime-local" class="form-control" id="jadwal_service"
+                                        wire:model="jadwal_service" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="tipe_service" class="form-label">Tipe Service</label>
+                                    <select class="form-select" id="tipe_service" wire:model.live="tipe_service"
+                                        required>
+                                        <option value="">-- Pilih Tipe Service --</option>
+                                        <option value="Ganti Oli">Ganti Oli</option>
+                                        <option value="Servis Berkala">Servis Berkala</option>
+                                        <option value="Perbaikan Mesin">Perbaikan Mesin</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+
+                                @if ($tipe_service === 'Lainnya')
+                                    <div class="mb-3">
+                                        <label for="tipe_service_lainnya" class="form-label">Tipe Service
+                                            Lainnya</label>
+                                        <input type="text" class="form-control" id="tipe_service_lainnya"
+                                            wire:model="tipe_service_lainnya" required>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+
+
 
                         <div class="mb-3">
                             <label for="keluhan" class="form-label">Keluhan</label>

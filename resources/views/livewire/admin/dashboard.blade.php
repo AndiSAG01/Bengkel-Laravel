@@ -71,7 +71,7 @@
         <div class="col-lg-4">
             <div class="list_counter_wrapper white_box mb_30 p-0 card_height_100">
                 <div class="single_list_counter">
-                    <h3 class="deep_blue_2"><span class="counter deep_blue_2 ">{{ $member }}</span> </h3>
+                    <h3 class="deep_blue_2"><span class="counter deep_blue_2">{{ $member }}</span> </h3>
                     <p>Total Pelanggan</p>
                 </div>
                 <div class="single_list_counter">

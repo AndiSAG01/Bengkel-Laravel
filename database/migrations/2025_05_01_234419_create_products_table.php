@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement(); // Primary key
-            $table->string('nama');
+            $table->string('nama',50);
             $table->unsignedInteger('id_category')->nullable(); // Foreign key ke categories
             $table->foreign('id_category')
                 ->references('id') // Relasi ke id_category di tabel categories

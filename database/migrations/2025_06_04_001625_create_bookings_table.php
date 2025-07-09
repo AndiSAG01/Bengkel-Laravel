@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-             $table->string('nama');
-            $table->string('nomor_hp');
-            $table->string('email');
-            $table->string('tipe_kendaraan');
-            $table->string('plat_nomor');
-            $table->string('atas_nama');
+             $table->string('nama',50);
+            $table->string('nomor_hp',15);
+            $table->string('email',30);
+            $table->string('tipe_kendaraan',30);
+            $table->string('plat_nomor',30);
+            $table->string('atas_nama',30);
             $table->dateTime('jadwal_service');
-            $table->string('tipe_service');
-            $table->string('status');
+            $table->string('tipe_service',30);
+            $table->string('status',30);
             $table->text('keluhan')->nullable();
             $table->timestamps();
         });

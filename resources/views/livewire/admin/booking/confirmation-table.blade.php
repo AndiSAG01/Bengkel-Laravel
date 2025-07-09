@@ -77,7 +77,7 @@
                                                 <button type="submit" class="btn btn-success">Konfirmasi</button>
                                             </form>
 
-                                            <form wire:submit="cancel{{ $item->id }}">
+                                            <form wire:submit="cancel({{ $item->id }})">
                                                 @csrf
                                                 <button type="submit" class="btn btn-danger">Dibatalkan</button>
                                             </form>

@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="dashboard_header_title">
-                            <h3> Data Booking Sedang Dikerjakan <i class="fas fa-th-list"></i></h3>
+                            <h3> Data Booking Dibatalkan <i class="fas fa-th-list"></i></h3>
                         </div>
                     </div>
                     <div class="col-lg-6">

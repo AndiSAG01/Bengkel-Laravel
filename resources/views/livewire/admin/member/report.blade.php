@@ -39,7 +39,6 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Pelanggan</th>
                                 <th scope="col">Nomor Handphone</th>
-                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,14 +49,6 @@
                                         </a></th>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->nomor_handphone }}</td>
-                                    <td>
-                                        <a href="{{ route('member.edit', $item->id) }}"
-                                            class="btn btn-info btn-sm btn-block text-dark">Edit</a>
-                                        <button class="btn btn-danger btn-sm"
-                                            wire:click="confirmDelete({{ $item->id }})">
-                                            Hapus
-                                        </button>
-                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -74,8 +74,8 @@
                      </li>
                      <li><a href="{{ route('booking.end') }}"
                              class="{{ request()->routeIs('booking.end') ? 'active' : '' }}">Selesai</a></li>
-                     <li><a href="{{ route('service.index') }}"
-                             class="{{ request()->routeIs('service.index') ? 'active' : '' }}">Dibatalkan</a></li>
+                     <li><a href="{{ route('booking.cancel') }}"
+                             class="{{ request()->routeIs('booking.cancel') ? 'active' : '' }}">Dibatalkan</a></li>
                  </ul>
              </li>
              <li

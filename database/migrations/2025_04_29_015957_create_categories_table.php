@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement(); // Primary key
-            $table->string('nama');
+            $table->string('nama',30);
             $table->timestamps();
         });
     }

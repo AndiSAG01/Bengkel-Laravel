@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement(); // Primary key
-            $table->string('nama');
-            $table->string('harga');
+            $table->string('nama',50);
+            $table->string('harga',50);
             $table->timestamps();
         });
     }

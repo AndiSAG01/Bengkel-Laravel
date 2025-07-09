@@ -17,7 +17,7 @@ class ConfirmationTable extends Component
             'status' => 'Sedang Dikerjakan'
         ]);
 
-        return redirect()->route('process')->with('success','Berhasil Konfirmasi Booking');
+        return redirect()->route('booking.process')->with('success','Berhasil Konfirmasi Booking');
     }
      public function cancel($id)
     {

@@ -124,9 +124,9 @@
                 </div>
                 <div class="col-lg-6">
                     <h6 class="text-primary text-uppercase">// Tentang Kami //</h6>
-                    <h1 class="mb-4"><span class="text-primary">CarServ</span> Adalah Tempat Terbaik Untuk Perawatan
-                        Mobil Anda</h1>
-                    <p class="mb-4">CarServ hadir untuk memberikan solusi terbaik bagi Anda yang membutuhkan perawatan
+                    <span class="mb-4"><span class="text-primary">Bengkel Ayah Diesel</span> Adalah Tempat Terbaik Untuk Perawatan
+                        Mobil Anda</span>
+                    <p class="mb-4">Bengkel Ayah Diesel hadir untuk memberikan solusi terbaik bagi Anda yang membutuhkan perawatan
                         dan perbaikan kendaraan secara menyeluruh. Dengan dukungan teknisi berpengalaman dan peralatan
                         modern, kami memastikan mobil Anda tetap dalam kondisi prima dan aman digunakan.</p>
                     <div class="row g-4 mb-3 pb-3">

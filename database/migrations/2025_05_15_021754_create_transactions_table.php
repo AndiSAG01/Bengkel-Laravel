@@ -33,18 +33,18 @@ return new class extends Migration
                 ->references('id') // Relasi ke id_category di tabel categories
                 ->on('services')
                 ->cascadeOnDelete();
-            $table->string('invoice')->unique();
-            $table->string('plat_nomor');
-            $table->string('jenis_kendaraan');
-            $table->string('jenis_transaksi');
-            $table->string('qty');
-            $table->string('total');
-            $table->string('bayar')->nullable();
-            $table->string('kembalian')->nullable();
-            $table->string('metode_bayar')->nullable();
-            $table->string('nama_bank')->nullable();
-            $table->string('nomor_rekening')->nullable();
-            $table->string('nominal_debit')->nullable();
+            $table->string('invoice',50)->unique();
+            $table->string('plat_nomor',10);
+            $table->string('jenis_kendaraan',20);
+            $table->string('jenis_transaksi',20);
+            $table->string('qty',5);
+            $table->string('total',30);
+            $table->string('bayar',30)->nullable();
+            $table->string('kembalian',30)->nullable();
+            $table->string('metode_bayar',50)->nullable();
+            $table->string('nama_bank',50)->nullable();
+            $table->string('nomor_rekening',50)->nullable();
+            $table->string('nominal_debit',50)->nullable();
             $table->timestamps();
         });
     }

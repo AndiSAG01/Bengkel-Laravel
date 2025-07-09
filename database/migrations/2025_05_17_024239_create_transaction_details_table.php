@@ -18,11 +18,11 @@ return new class extends Migration
                 ->references('id') // Relasi ke id_category di tabel categories
                 ->on('transactions')
                 ->cascadeOnDelete(); 
-                $table->string('nama_item');
-                $table->string('jenis');
-                $table->string('qty');
-                $table->string('harga');
-                $table->string('total');
+                $table->string('nama_item',50);
+                $table->string('jenis',30);
+                $table->string('qty',5);
+                $table->string('harga',30);
+                $table->string('total',30);
             $table->timestamps();
         });
     }
