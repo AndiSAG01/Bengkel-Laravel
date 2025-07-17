@@ -19,7 +19,7 @@
 
 
                 <!-- Modal Body -->
-                <form wire:submit="save" enctype="multipart/form-data">
+                <form wire:submit="save">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="namaKategori" class="form-label">Nama Produk</label>

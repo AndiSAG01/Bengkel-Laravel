@@ -43,7 +43,9 @@ class MemberTable extends Component
     public function render()
     {
         return view('livewire.admin.member.member-table', [
-            'members' => Member::where('nama',  'like', '%' . $this->search . '%')->paginate(10)
+            'members' => Member::where('nama', 'like', '%' . $this->search . '%')
+                ->orderBy('created_at', 'desc') // urutkan dari yang terbaru
+                ->paginate(10)
         ]);
     }
 }

@@ -1,5 +1,5 @@
 <div>
-     <div class="row">
+    <div class="row">
         <div class="col-12">
             <div class="dashboard_header mb_50">
                 <div class="row">
@@ -10,7 +10,9 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="dashboard_breadcam text-end">
-                            <p><a href="index.html">Dashboard</a> <i class="fas fa-caret-right"></i> Data Booking Online <i class="fas fa-caret-right"></i> Data Konfirmasi</p>  
+                            <p><a href="index.html">Dashboard</a> <i class="fas fa-caret-right"></i> Data Booking Online
+                                <i class="fas fa-caret-right"></i> Data Konfirmasi
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -54,8 +56,11 @@
                         <tbody>
                             @foreach ($booking as $key => $item)
                                 <tr>
-                                    <th scope="row"> <a href="#" class="question_content">
-                                            {{ $booking->firstItem() + $key }}</a></th>
+                                    <th scope="row">
+                                        <a href="#" class="question_content">
+                                            {{ $booking->firstItem() + $key }}
+                                        </a>
+                                    </th>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->nomor_hp }}</td>
                                     <td>{{ $item->email }}</td>
@@ -71,25 +76,60 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <form wire:submit="confirmBooking({{ $item->id }})">
+                                        <div class="d-flex flex-wrap gap-1 justify-content-center align-items-center">
+                                            <form wire:submit.prevent="confirmBooking({{ $item->id }})">
                                                 @csrf
-                                                <button type="submit" class="btn btn-success">Konfirmasi</button>
+                                                <button type="submit"
+                                                    class="btn btn-success btn-sm">Konfirmasi</button>
                                             </form>
 
-                                            <form wire:submit="cancel({{ $item->id }})">
+                                            <form wire:submit.prevent="cancel({{ $item->id }})">
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger">Dibatalkan</button>
+                                                <button type="submit" class="btn btn-danger btn-sm">Dibatalkan</button>
                                             </form>
+
+                                            @php
+                                                $waNumber = preg_replace('/^0/', '62', $item->nomor_hp);
+                                                $waMessage = urlencode("
+Dear PIC Booking Service Dealer,
+
+Berikut ini terlampir data pelanggan yang melakukan booking service pada cabang Anda melalui aplikasi mTOYOTA
+
+Nama Pelanggan: {$item->nama}
+Cabang Dealer: Arina Parama Jaya
+Nomor HP: {$item->nomor_hp}
+Email Pelanggan: {$item->email}
+Tipe Kendaraan: {$item->tipe_kendaraan}
+Nomor Polisi: {$item->plat_nomor}
+Atas Nama pada STNK: {$item->atas_nama}
+Toyota Mobile Service (TMS): Yes
+Jadwal Service: {$item->jadwal_service}
+Tipe Service: {$item->tipe_service}
+Tipe Service Lainnya: -
+Promo Code: -
+Keluhan: {$item->keluhan}
+
+Mohon pastikan bahwa Anda telah melakukan konfirmasi ulang jadwal booking service pelanggan di atas selambat-lambatnya 1 x 24 jam.
+Apabila ada pertanyaan lebih lanjut, Anda dapat menghubungi support.mtoyota@toyota.astra.co.id
+
+Terima kasih");
+                                            @endphp
+
+                                            <a href="https://wa.me/{{ $waNumber }}?text={{ $waMessage }}"
+                                                class="btn btn-warning btn-sm" target="_blank">
+                                                Kirim WA
+                                            </a>
+
                                         </div>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                     <div class="d-flex justify-content-end mt-3">
+                    <div class="d-flex justify-content-end mt-3">
                         {{ $booking->links() }}
                     </div>
+
                 </div>
             </div>
         </div>

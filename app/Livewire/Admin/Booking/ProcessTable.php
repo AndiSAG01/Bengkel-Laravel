@@ -10,19 +10,20 @@ class ProcessTable extends Component
 {
     use WithPagination;
 
-     public function endBooking($id)
+    public function endBooking($id)
     {
         $booking = Booking::findOrFail($id);
         $booking->update([
             'status' => 'Selesai'
         ]);
 
-        return redirect()->route('booking.end')->with('success','Berhasil Konfirmasi Booking');
+        return redirect()->route('booking.end')->with('success', 'Berhasil Konfirmasi Booking');
     }
     public function render()
     {
-        return view('livewire.admin.booking.process-table',[
-            'booking' => Booking::where('status','Sedang Dikerjakan')->paginate()
+        return view('livewire.admin.booking.process-table', [
+            'booking' => Booking::where('status', 'Sedang Dikerjakan')->orderBy('created_at', 'desc') // urutkan dari yang terbaru
+                ->paginate(10)
         ]);
     }
 }

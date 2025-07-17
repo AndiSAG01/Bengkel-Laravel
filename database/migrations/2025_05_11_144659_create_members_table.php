@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->unsignedInteger('id')->autoIncrement(); // Primary key
-            $table->string('nama',30);
+            $table->string('nama',30)->unique();
             $table->string('nomor_handphone',15);
             $table->timestamps();
         });

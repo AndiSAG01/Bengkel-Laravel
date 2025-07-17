@@ -47,7 +47,8 @@ class UserTable extends Component
                 ->where(function ($query) {
                     $query->where('name', 'like', '%' . $this->search . '%')
                         ->orWhere('email', 'like', '%' . $this->search . '%');
-                })->paginate(5)
+                })->orderBy('created_at', 'desc') // urutkan dari yang terbaru
+                ->paginate(10)
         ]);
     }
 }

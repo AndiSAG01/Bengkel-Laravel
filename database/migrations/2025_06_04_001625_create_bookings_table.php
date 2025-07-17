@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
              $table->string('nama',50);
             $table->string('nomor_hp',15);
-            $table->string('email',30);
+            $table->string('email',50);
             $table->string('tipe_kendaraan',30);
             $table->string('plat_nomor',30);
             $table->string('atas_nama',30);

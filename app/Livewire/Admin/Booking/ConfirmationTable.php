@@ -17,21 +17,22 @@ class ConfirmationTable extends Component
             'status' => 'Sedang Dikerjakan'
         ]);
 
-        return redirect()->route('booking.process')->with('success','Berhasil Konfirmasi Booking');
+        return redirect()->route('booking.process')->with('success', 'Berhasil Konfirmasi Booking');
     }
-     public function cancel($id)
+    public function cancel($id)
     {
         $booking = Booking::findOrFail($id);
         $booking->update([
             'status' => 'Dibatalkan'
         ]);
 
-        return redirect()->route('booking.cancel')->with('success','Berhasil Konfirmasi Booking');
+        return redirect()->route('booking.cancel')->with('success', 'Berhasil Konfirmasi Booking');
     }
     public function render()
     {
-        return view('livewire.admin.booking.confirmation-table',[
-            'booking' => Booking::where('status','Menunggu Konfirmasi')->paginate()
+        return view('livewire.admin.booking.confirmation-table', [
+            'booking' => Booking::where('status', 'Menunggu Konfirmasi')->orderBy('created_at', 'desc') // urutkan dari yang terbaru
+                ->paginate(10)
         ])->layout('components.layouts.app');
     }
 }

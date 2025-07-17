@@ -42,7 +42,8 @@ class CategoryIndex extends Component
     public function render()
     {
         return view('livewire.admin.category.category-index', [
-            'categorys' => Category::where('nama', 'like', '%' . $this->search . '%')->paginate(10)
+            'categorys' => Category::where('nama', 'like', '%' . $this->search . '%')->orderBy('created_at', 'desc') // urutkan dari yang terbaru
+                ->paginate(10)
         ]);
     }
 }

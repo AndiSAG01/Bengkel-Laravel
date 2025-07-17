@@ -44,6 +44,7 @@ class ProductTable extends Component
     {
         return view('livewire.admin.product.product-table', [
             'products' => Product::where('nama', 'like', '%' . $this->search . '%')
+                ->orderBy('created_at', 'desc') // urutkan dari yang terbaru
                 ->paginate(10)
         ]);
     }
