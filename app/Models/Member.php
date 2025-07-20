@@ -18,7 +18,9 @@ class Member extends Model
 
     protected $fillable =[
         'nama',
-        'nomor_handphone'
+        'nomor_handphone',
+        'plat_nomor',
+        'jenis_kendaraan'
     ];
 
      public function transactions(): HasMany

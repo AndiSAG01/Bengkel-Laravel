@@ -34,8 +34,6 @@ return new class extends Migration
                 ->on('services')
                 ->cascadeOnDelete();
             $table->string('invoice',50)->unique();
-            $table->string('plat_nomor',10);
-            $table->string('jenis_kendaraan',20);
             $table->string('jenis_transaksi',20);
             $table->string('qty',5);
             $table->string('total',30);

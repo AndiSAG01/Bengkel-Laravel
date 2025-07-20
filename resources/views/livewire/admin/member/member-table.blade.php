@@ -49,6 +49,8 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Pelanggan</th>
                                 <th scope="col">Nomor Handphone</th>
+                                <th scope="col">Plat Nomor</th>
+                                <th scope="col">Jenis Kendaraan</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -60,6 +62,8 @@
                                         </a></th>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->nomor_handphone }}</td>
+                                    <td>{{ $item->plat_nomor }}</td>
+                                    <td>{{ $item->jenis_kendaraan }}</td>
                                     <td>
                                         <a href="{{ route('member.edit', $item->id) }}"
                                             class="btn btn-info btn-sm btn-block text-dark">Edit</a>

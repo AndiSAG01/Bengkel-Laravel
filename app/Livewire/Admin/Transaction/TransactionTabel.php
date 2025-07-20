@@ -23,12 +23,12 @@ class TransactionTabel extends Component
 
     public $total;
 
+    public $selectedMember;
+
 
     protected $rules = [
         'user_id'         => 'nullable|exists:users,id',
         'member_id'       => 'nullable|exists:members,id',
-        'plat_nomor'      => 'required|string|max:20',
-        'jenis_kendaraan' => 'required|string|max:50',
         'jenis_transaksi' => 'required|in:barang,jasa,gabungan',
         'product_id'      => 'nullable|exists:products,id',
         'service_id'      => 'nullable|exists:services,id',
@@ -43,7 +43,10 @@ class TransactionTabel extends Component
         'nominal_debit'   => 'nullable|numeric|min:0',
     ];
 
-
+    public function updatedMemberId($value)
+    {
+        $this->selectedMember = Member::find($value);
+    }
     public function updatedJenisTransaksi($value)
     {
         $this->reset(['product_id', 'service_id', 'harga', 'qty', 'total']);

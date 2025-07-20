@@ -82,43 +82,77 @@
                                     <label for="nama" class="form-label">Nama Pelanggan</label>
                                     <input type="text" class="form-control" id="nama" wire:model="nama"
                                         required>
+                                    @error('nama')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" wire:model="email"
+                                        required>
+                                    @error('email')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="nomor_hp" class="form-label">Nomor HP</label>
                                     <input type="number" class="form-control" id="nomor_hp" wire:model="nomor_hp"
                                         required>
+                                    @error('nomor_hp')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" wire:model="email"
-                                        required>
+                                    <label class="form-label">Jenis Kendaraan</label>
+                                    <select wire:model="jenis_kendaraan" class="form-select shadow-sm" required>
+                                        <option selected>Pilih Merek Mobil</option>
+                                        @foreach (['Toyota', 'Honda', 'Suzuki', 'Daihatsu', 'Mitsubishi', 'Nissan', 'Hyundai', 'Wuling', 'Kia', 'Mazda'] as $merk)
+                                            <option value="{{ $merk }}">{{ $merk }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('jenis_kendaraan')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="tipe_kendaraan" class="form-label">Tipe Kendaraan</label>
                                     <input type="text" class="form-control" id="tipe_kendaraan"
                                         wire:model="tipe_kendaraan" required>
+                                    @error('tipe_kendaraan')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="plat_nomor" class="form-label">Plat Nomor</label>
-                                    <input type="text" class="form-control" id="plat_nomor" wire:model="plat_nomor"
-                                        required>
+                                    <input type="text" class="form-control" id="plat_nomor"
+                                        wire:model="plat_nomor" required>
+                                    @error('plat_nomor')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="atas_nama" class="form-label">Atas Nama (STNK)</label>
                                     <input type="text" class="form-control" id="atas_nama" wire:model="atas_nama"
                                         required>
+                                    @error('atas_nama')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="jadwal_service" class="form-label">Jadwal Service</label>
                                     <input type="datetime-local" class="form-control" id="jadwal_service"
                                         wire:model="jadwal_service" required>
+                                    @error('jadwal_service')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
@@ -131,6 +165,9 @@
                                         <option value="Perbaikan Mesin">Perbaikan Mesin</option>
                                         <option value="Lainnya">Lainnya</option>
                                     </select>
+                                    @error('tipe_service')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 @if ($tipe_service === 'Lainnya')
@@ -139,20 +176,22 @@
                                             Lainnya</label>
                                         <input type="text" class="form-control" id="tipe_service_lainnya"
                                             wire:model="tipe_service_lainnya" required>
+                                        @error('tipe_service_lainnya')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 @endif
                             </div>
                         </div>
 
-
-
-
-
-
                         <div class="mb-3">
                             <label for="keluhan" class="form-label">Keluhan</label>
                             <textarea class="form-control" id="keluhan" rows="4" wire:model="keluhan"></textarea>
+                            @error('keluhan')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
+
 
                         <button type="submit" class="btn btn-primary">Kirim Booking</button>
                     </form>

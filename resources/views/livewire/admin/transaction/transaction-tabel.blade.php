@@ -30,27 +30,27 @@
                         <div class="row g-3">
                             <div class="col-12 col-md-6">
                                 <label class="form-label">Nama Pelanggan</label>
-                                <select wire:model="member_id" class="form-select form-select-sm shadow-sm">
-                                    <option selected>Pilih Pelanggan</option>
+                                <select wire:model.live="member_id" class="form-select form-select-sm shadow-sm">
+                                    <option value="">Pilih Pelanggan</option>
                                     @foreach ($member as $members)
                                         <option value="{{ $members->id }}">{{ $members->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
+
                             <div class="col-12 col-md-3">
                                 <label class="form-label">No. Polisi</label>
-                                <input type="text" wire:model="plat_nomor"
-                                    class="form-control form-control-sm shadow-sm" placeholder="Contoh: B 1234 AB">
+                                <input type="text" class="form-control form-control-sm shadow-sm"
+                                    placeholder="Contoh: BH 1234 AB" value="{{ $selectedMember?->plat_nomor }}" readonly>
                             </div>
+
                             <div class="col-12 col-md-3">
                                 <label class="form-label">Jenis Kendaraan</label>
-                                <select wire:model="jenis_kendaraan" class="form-select form-select-sm shadow-sm">
-                                    <option selected>Pilih Merek Mobil</option>
-                                    @foreach (['Toyota', 'Honda', 'Suzuki', 'Daihatsu', 'Mitsubishi', 'Nissan', 'Hyundai', 'Wuling', 'Kia', 'Mazda'] as $merk)
-                                        <option value="{{ $merk }}">{{ $merk }}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control form-control-sm shadow-sm"
+                                    placeholder="Contoh: Toyota" value="{{ $selectedMember?->jenis_kendaraan }}"
+                                    readonly>
                             </div>
+
                         </div>
                     </div>
                 </div>

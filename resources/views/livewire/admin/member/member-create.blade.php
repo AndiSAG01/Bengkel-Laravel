@@ -23,7 +23,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="namaKategori" class="form-label">Nama Pelanggan</label>
-                            <input type="text" id="namaKategori" wire:model="nama" class="form-control"
+                            <input type="text" id="namaKategori" wire:model="nama" class="form-control shadow-sm"
                                 placeholder="Masukkan Nama Pelanggan">
                             @error('nama')
                                 <span class="text-danger">{{ $message }}</span>
@@ -31,10 +31,28 @@
                         </div>
                         <div class="mb-3">
                             <label for="namaKategori" class="form-label">Nomor Handphone</label>
-                            <input type="number" id="namaKategori" wire:model="nomor_handphone" class="form-control" placeholder="Masukan Nomor Handphone">
-                            @error('nama')
+                            <input type="number" id="namaKategori" wire:model="nomor_handphone" class="form-control shadow-sm"
+                                placeholder="Masukan Nomor Handphone" >
+                            @error('nomor_handphone')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="namaKategori" class="form-label">Plat Nomor</label>
+                            <input type="text" id="namaKategori" wire:model="plat_nomor" class="form-control shadow-sm"
+                                placeholder="Masukan Plat Nomor Kendaraan" >
+                            @error('plat_nomor')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Jenis Kendaraan</label>
+                            <select wire:model="jenis_kendaraan" class="form-control shadow-sm">
+                                <option selected>== Pilih Merek Mobil ==</option>
+                                @foreach (['Toyota', 'Honda', 'Suzuki', 'Daihatsu', 'Mitsubishi', 'Nissan', 'Hyundai', 'Wuling', 'Kia', 'Mazda'] as $merk)
+                                    <option value="{{ $merk }}">{{ $merk }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
 

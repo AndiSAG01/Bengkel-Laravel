@@ -15,6 +15,8 @@ return new class extends Migration
             $table->unsignedInteger('id')->autoIncrement(); // Primary key
             $table->string('nama',30)->unique();
             $table->string('nomor_handphone',15);
+            $table->string('plat_nomor',15);
+            $table->string('jenis_kendaraan',20);
             $table->timestamps();
         });
     }
