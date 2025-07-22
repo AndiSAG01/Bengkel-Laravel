@@ -239,8 +239,6 @@ class TransactionTabel extends Component
         $transaksi = Transaction::create([
             'user_id' => auth()->id(),
             'member_id' => $this->member_id,
-            'plat_nomor' => $this->plat_nomor,
-            'jenis_kendaraan' => $this->jenis_kendaraan,
             'jenis_transaksi' => $jenisTransaksi, // <- dari hasil deteksi isi keranjang
             'invoice' => $invoiceNumber,
             'total' => $this->subtotal,
@@ -317,8 +315,6 @@ class TransactionTabel extends Component
         $transaksi = Transaction::create([
             'user_id' => auth()->id(),
             'member_id' => $this->member_id,
-            'plat_nomor' => $this->plat_nomor,
-            'jenis_kendaraan' => $this->jenis_kendaraan,
             'jenis_transaksi' => $this->jenis_transaksi,
             'invoice' => $invoiceNumber,
             'total' => $total,

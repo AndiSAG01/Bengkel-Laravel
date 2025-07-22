@@ -44,8 +44,8 @@
                             <td>{{ $transaction->FirstItem() + $key }}</td>
                             <td>{{ $item->invoice }}</td>
                             <td>{{ $item->member->nama }}</td>
-                            <td>{{ $item->plat_nomor }}</td>
-                            <td>{{ $item->jenis_kendaraan }}</td>
+                            <td>{{ $item->member->plat_nomor }}</td>
+                            <td>{{ $item->member->jenis_kendaraan }}</td>
                             <td>{{ $item->metode_bayar }}</td>
                             <td>
                                 <a href="{{ route('item.detail',$item->id) }}" class="text-dark btn btn-info btn-sm">Detail</a>
